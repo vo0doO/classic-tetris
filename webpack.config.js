@@ -1,6 +1,6 @@
 var config = require('./w.config');
 
-// dev环境配置
+// Конфигурация среды разработки
 module.exports = {
   devtool: config.devtool,
   entry: config.entry,

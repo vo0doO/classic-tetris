@@ -7,7 +7,7 @@ import './unit/const';
 import './control';
 import { subscribeRecord } from './unit';
 
-subscribeRecord(store); // 将更新的状态记录到localStorage
+subscribeRecord(store); // Записывает обновленный статус в localStorage
 
 render(
   <Provider store={store}>

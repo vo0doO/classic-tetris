@@ -8,16 +8,16 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var version = require('./package.json').version;
 
 
-// 程序入口
+// Запись в программе
 var entry =  __dirname + '/src/index.js';
 
-// 输出文件
+// Выходной файл
 var output =  {
   filename: 'page/[name]/index.js',
   chunkFilename: 'chunk/[name].[chunkhash:5].chunk.js',
 };
 
-// 生成source-map追踪js错误
+// Генерация ошибок трассировки js исходной карты
 var devtool = 'source-map';
 
 // eslint
@@ -39,7 +39,7 @@ var loaders = [
     },
     {
       test: /\.(?:png|jpg|gif)$/,
-      loader: 'url?limit=8192', //小于8k,内嵌;大于8k生成文件
+      loader: 'url?limit=8192', // Менее 8k, встроенный; Больше 8 КБ сделать файл
     },
     {
       test: /\.less/,
@@ -53,15 +53,15 @@ var devPlugins =  [
     { from: './src/resource/music/music.mp3' },
     { from: './src/resource/css/loader.css' },
   ]),
-  // 热更新
+  // Горячие обновления
   new webpack.HotModuleReplacementPlugin(),
-  // 允许错误不打断程序, 仅开发模式需要
+  // Допускать ошибки без прерывания работы программы, требуется только в режиме разработки
   new webpack.NoErrorsPlugin(),
-  // 打开浏览器页面
+  // Откройте страницу браузера
   new OpenBrowserPlugin({
     url: 'http://127.0.0.1:8080/'
   }),
-  // css打包
+  // css упаковывать
   new ExtractTextPlugin('css.css', {
     allChunks: true
   }),
@@ -69,26 +69,26 @@ var devPlugins =  [
 
 // production plugin
 var productionPlugins = [
-  // 定义生产环境
+  // Определение рабочей среды
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': '"production"',
   }),
-  // 复制
+  // копировать
   new CopyWebpackPlugin([
     { from: './src/resource/music/music.mp3' },
     { from: './src/resource/css/loader.css' },
   ]),
-  // HTML 模板
+  // HTML шаблон
   new HtmlWebpackPlugin({
     template: __dirname + '/server/index.tmpl.html'
   }),
-  // JS压缩
+  // JS компресс
   new webpack.optimize.UglifyJsPlugin({
     compress: {
       warnings: false
     }}
   ),
-  // css打包
+  // css упаковывать
   new ExtractTextPlugin('css-' + version + '.css', {
     allChunks: true
   }),
@@ -99,8 +99,8 @@ var devServer = {
   contentBase: './server',
   colors: true,
   historyApiFallback: false,
-  port: 8080, // defaults to "8080"
-  hot: true, // Hot Module Replacement
+  port: 8080, // значение по умолчанию "8080"
+  hot: true, // Горячая замена модуля
   inline: true, // Livereload
   host: '0.0.0.0',
   disableHostCheck: true
