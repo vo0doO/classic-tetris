@@ -3,7 +3,7 @@
 ----
 Тетрис – это классическая игра, которая всегда с энтузиазмом реализовывалась на различных языках. В Javascript есть много его версий, и использование React для выполнения тетриса стало моей целью.
 
-Открытый [https://chvin.github.io/react-tetris/?lan=en](https://chvin.github.io/react-tetris/?lan=en) играть!
+Открытый [https://vo0doo.github.io/classic-tetris](https://vo0doo.github.io/classic-tetris) играть!
 
 ----
 ### Предварительный просмотр интерфейса
@@ -113,16 +113,16 @@ If we don't return a new object when making state updates, we would have to use 
 
 For Tetris, imagine that the board is a `two-dimensional array`. The square that can be moved is `shape (also a two-dimensional array) + coordinates`. The superposition of the board and the box is composed of the final result of `Matrix`. The properties above are built by `Immutable.js`, through its comparison method, you can easily write `shouldComponentUpdate`. Source Code:[/src/components/matrix/index.js#L35](https://github.com/chvin/react-tetris/blob/master/src/components/matrix/index.js#L35)
 
-Immutable learning materials:
+Неизменные учебные материалы:
 * [Immutable.js](http://facebook.github.io/immutable-js/)
 * [Immutable Detailed and React in practice](https://github.com/camsong/blog/issues/3)
 
 
 ----
-## 2. How to use Immutable.js in Redux
-Goal: `state` -> Immutable.
-Important plug-ins: [gajus/redux-immutable](https://github.com/gajus/redux-immutable)
-Will be provided by the original Redux combineReducers provided by the above plug-ins:
+## 2. Как использовать Immutable.js в Redux
+Цель: `state` -> Неизменный.
+Важные плагины: [gajus/redux-immutable](https://github.com/gajus/redux-immutable)
+Будет предоставлен оригинальными коммуникаторами Redux, предоставленные вышеупомянутыми плагинами:
 ``` JavaScript
 // rootReducers.js
 // import { combineReducers } from 'redux'; // The old method
@@ -145,7 +145,7 @@ import rootReducer from './reducers';
 const store = createStore(rootReducer);
 export default store;
 ```
-Through the new `combineReducers` the store object will be stored as an Immutable.js object, the container will be slightly different, but this is what we want:
+Через новое `combineReducers` Объект магазина будет храниться как объект Immutable.js, контейнер будет немного отличным, но это то, что мы хотим:
 ``` JavaScript
 const mapStateToProps = (state) => ({
   prop1: state.get('prop1'),
@@ -158,43 +158,43 @@ export default connect(mapStateToProps)(App);
 
 
 ----
-## 3. Web Audio Api
-There are many different sound effects in the game, but in fact we keep only a reference to a sound file: [/build/music.mp3](https://github.com/chvin/react-tetris/blob/master/build/music.mp3). With the help of `Web Audio Api`, you can play audio in millisecond precision, with a high frequency, which is not possible with the `<audio>` tag. Press the arrow keys to move the box while the game is in progress, you can hear high-frequency sound.
+## 3. Веб-аудио пожар
+В игре много разных звуковых эффектов, но на самом деле мы поддерживаем только ссылку на звуковой файлe: [/build/music.mp3](https://github.com/chvin/react-tetris/blob/master/build/music.mp3). С помощью `Web Audio Api`, Вы можете воспроизводить аудио в миллисекундной точности, с высокой частотой, что невозможно с тегом `<audio>`. Нажмите клавиши со стрелками, чтобы переместить коробку, когда игра выполняется, вы можете услышать высокочастотный звук.
 
 ![Web audio advanced](https://img.alicdn.com/tps/TB1fYgzNXXXXXXnXpXXXXXXXXXX-633-358.png)
 
-`WAA` is a new set of relatively independent interface system, the audio file has a higher processing power and more professional built-in audio effects, is the W3C recommended interface, can deal with professional "sound speed, volume, environment, sound visualization, High-frequency, sound to " and other needs. The following figure describes the use of WAA process.
+`WAA` является новым набором относительно независимой интерфейсной системы, аудиофайл имеет более высокую мощность обработки и более профессиональные встроенные аудиоэффекты, является рекомендованным интерфейсом W3C, может иметь дело с профессиональной «скоростью звука, объемом, окружающей средой, звуковой визуализации, высоким Частота, звук на "и другие потребности. На следующем рисунке описывается использование процесса WAA.
 
 ![Process](https://img.alicdn.com/tps/TB1nBf1NXXXXXagapXXXXXXXXXX-520-371.png)
 
-Where `Source` represents an audio source, `Destination` represents the final output. Multiple Sources compose the Destination.
-Source Code:[/src/unit/music.js](https://github.com/chvin/react-tetris/blob/master/src/unit/music.js). To achieve ajax loading mp3, and to WAA, control the playback process.
+Где `Source` представляет собой аудиоисточник, `Destination` представляет собой окончательный выход. Несколько источников составляют место назначения.
+Исходный код:[/src/unit/music.js](https://github.com/chvin/react-tetris/blob/master/src/unit/music.js). Для достижения ajax загрузка mp3 и waa, контролировать процесс воспроизведения.
 
-`WAA` is supported in the latest 2 versions of each browser([CanIUse](http://caniuse.com/#search=webaudio))
+`WAA` поддерживается в последних 2 версиях каждого браузера([CanIUse](http://caniuse.com/#search=webaudio))
 
 ![browser compatibility](https://img.alicdn.com/tps/TB15z4VOVXXXXahaXXXXXXXXXXX-679-133.png)
 
-IE and Android lack support though.
+То есть и андроид не хватает поддержки, хотя.
 
-Web Audio Api learning materials:
-* [Web audio concepts and usage| MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
-* [Getting Started with Web Audio API](http://www.html5rocks.com/en/tutorials/webaudio/intro/)
+Веб-аудио API Учебные материалы:
+* [Веб-аудио концепции и использование| MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
+* [Начало работы с веб-аудио API](http://www.html5rocks.com/en/tutorials/webaudio/intro/)
 
 
 ----
-## 4. Game on the experience of optimization
-* Experience:
-	* Press the arrow keys to move vertically and horizontally. The trigger frequency is different, the game can define the trigger frequency, instead of the original event frequency, the source code:[/src/unit/event.js](https://github.com/chvin/react-tetris/blob/master/src/unit/event.js) ;
-	* Left and right to move the delay can drop the speed, but when moving in the wall smaller delay; in the speed of 6 through the delay will ensure a complete horizontal movement in a row;
-	* The `touchstart` and `mousedown` events are also registered for the button for responsive games. When `touchstart` occurs, `mousedown` is not triggered, and when `mousedown` occurs, the `mouseup` simulator `mouseup` will also be listened to as `mouseup`, since the mouse-removed event element can not fire. Source Code:[/src/components/keyboard/index.js](https://github.com/chvin/react-tetris/blob/master/src/components/keyboard/index.js);
-	* The `visibilitychange` event, when the page is hidden\switch, the game will not proceed, switch back and it will continue, the `focus` state has also been written into the Redux. So when playing with the phone and the phone has a `call`, the progress of the game will be saved; PC open the game do not hear any other gameover, which is a bit like `ios` application switch;
-	* In the game `any` time you refresh the page, (such as the closing the tab or the end of the game) can restore the current state;
-	* The only pictures used in the game are ![image](https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png), all the rest is CSS;
-	* Game compatible with Chrome, Firefox, IE9 +, Edge, etc .;
-* Rules：
-	* You can specify the initial board (ten levels) and speed (six levels) before the start of the game;
-	* 100 points for 1 line, 300 points for 2 lines, 700 points for 3 lines, 1500 points for 4 lines;
-	* The drop speed of the box increases with the number of rows eliminated (one level for every 20 lines);
+## 4. Игра на опыте оптимизации
+* Опыт:
+	* Нажмите клавиши со стрелками, чтобы двигаться вертикально и горизонтально. Частота триггера отличается, игра может определить частоту триггера вместо исходной частоты событий, исходный код:[/src/unit/event.js](https://github.com/vo0doO/classic-tetris/blob/master/src/unit/event.js) ;
+	*Влево и вправо, чтобы переместить задержку, может отбросить скорость, но при перемещении в стенке меньшая задержка; По скорости 6 через задержку обеспечит полное горизонтальное движение подряд;
+	* То `touchstart` and `mousedown` События также зарегистрированы для кнопки для отзывчивых игр. Когда `touchstart` occurs, `mousedown` не срабатывает, а когда `mousedown` происходит, то `mouseup` симулятор `mouseup` также будет слушать как `mouseup`, Поскольку элемент события удаления мыши не может огонь. Исходный код:[/src/components/keyboard/index.js](https://github.com/vo0doO/classic-tetris/blob/master/src/components/keyboard/index.js);
+	* То `visibilitychange` событие, когда страница скрыта \ коммутатор, игра не будет продолжаться, переключиться назад, и она будет продолжаться, `focus` Состояние также было написано в Redux. Так, когда играете с телефоном, и телефон имеет `call`, прогресс игры будет сохранен; ПК Открыть игру Не слышать другого Gameover, что немного похоже `ios` Переключатель приложений;
+	* В игре `any` Время обновления страницы (например, закрытие вкладки или конец игры) может восстановить текущее состояние;
+	* Единственные картинки, используемые в игре, ![image](https://img.alicdn.com/tps/TB1qq7kNXXXXXacXFXXXXXXXXXX-400-186.png), Все остальное это CSS;
+	* Игра Совместим с Chrome, Firefox, IE9 +, ETG ETC .;
+* Правила：
+	* Вы можете указать начальную доску (десять уровней) и скорость (шесть уровней) до начала игры;
+	* 100 баллов за 1 строку, 300 баллов за 2 строки, 700 баллов за 3 строки, 1500 баллов за 4 строки;
+	* Скорость падения коробки увеличивается с количеством ликвидации рядов (один уровень на каждые 20 строк);
 
 
 ----
