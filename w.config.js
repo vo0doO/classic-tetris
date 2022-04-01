@@ -59,7 +59,7 @@ var devPlugins =  [
   new webpack.NoErrorsPlugin(),
   // Откройте страницу браузера
   new OpenBrowserPlugin({
-    url: 'http://127.0.0.1:8080/'
+    url: 'http://127.0.0.1:8090/'
   }),
   // css упаковывать
   new ExtractTextPlugin('css.css', {
@@ -99,7 +99,7 @@ var devServer = {
   contentBase: './server',
   colors: true,
   historyApiFallback: false,
-  port: 8080, // значение по умолчанию "8080"
+  port: 8090, // значение по умолчанию "8080"
   hot: true, // Горячая замена модуля
   inline: true, // Livereload
   host: '0.0.0.0',

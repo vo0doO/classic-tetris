@@ -3,7 +3,7 @@
   "version": "1.0.1",
   "description": "使用React、Redux、Immutable编写「俄罗斯方块」。Используйте Tetact, Redux, Неизменяемый для кодирования \"Tetris\".",
   "scripts": {
-    "start": "webpack-dev-server --progress",
+    "start": "npx webpack-dev-server --progress --config ./webpack.config.js",
     "build": "npx webpack --config ./webpack.production.config.js --progress && ls ./docs"
   },
   "repository": {
@@ -59,6 +59,7 @@
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "qrcode": "^1.2.0",
+    "react": "^15.7.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
     "redux": "^3.5.2",
