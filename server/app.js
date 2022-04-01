@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "77a0bbd095a89c419525"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2a0fa9c1cb26384f84ef"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -30284,7 +30284,7 @@
 /* 231 */
 /***/ (function(module, exports) {
 
-	module.exports = {"lan":["ru","en","fr","fa","ch"],"default":"ru","data":{"title":{"ru":"Т Е Т Р И С","en":"T E T R I S","cn":"俄罗斯方块","fr":"T E T R I S","fa":"خانه سازی"},"github":{"ru":"ГитХаб","en":"GitHub","cn":"GitHub","fr":"GitHub","fa":"گیت‌هاب"},"linkTitle":{"ru":"Просмотр источника данных","en":"View data source","cn":"查看源代码","fr":"Afficher la source des données","fa":"مشاهده سورس پروژه"},"QRCode":{"ru":"QR code","en":"QR code","cn":"二维码","fr":"QR code","fa":"کیوآر کد"},"titleCenter":{"ru":"ТЕТРИС","en":"TETRIS","cn":"俄罗斯方块<br />TETRIS","fr":"TETRIS","fa":"خانه سازی"},"point":{"ru":"Точка","en":"Point","cn":"得分","fr":"Score","fa":"امتیاز"},"highestScore":{"ru":"Рекорд","cn":"最高分","en":"Max","fr":"Max","fa":"حداکثر"},"lastRound":{"ru":"Того раунда","cn":"上轮得分","en":"Last Round","fr":"Dernier Tour","fa":"آخرین دور"},"cleans":{"ru":"Очистить","cn":"消除行","en":"Cleans","fr":"Lignes","fa":"پاک کرد"},"level":{"ru":"Уровень","cn":"级别","en":"Level","fr":"Difficulté","fa":"سطح"},"startLine":{"ru":"Высота","cn":"起始行","en":"Start Line","fr":"Ligne Départ","fa":"خط شروع"},"next":{"cn":"下一个","ru":"Следующий","fr":"Prochain","fa":"بعدی"},"pause":{"cn":"暂停","ru":"Пауза","en":"Pause","fr":"Pause","fa":"مکث"},"sound":{"cn":"音效","ru":"Звук","en":"Sound","fr":"Sonore","fa":"صدا"},"reset":{"cn":"重玩","ru":"Сброс","en":"Reset","fr":"Réinitialiser","fa":"ریست"},"rotation":{"cn":"旋转","ru":"Вращение","en":"Rotation","fr":"Rotation","fa":"چرخش"},"left":{"cn":"左移","ru":"Налево","en":"Left","fr":"Gauche","fa":"چپ"},"right":{"cn":"右移","ru":"Правильно","en":"Right","fr":"Droite","fa":"راست"},"down":{"cn":"下移","ru":"Вниз","en":"Down","fr":"Bas","fa":"پایین"},"drop":{"cn":"掉落","ru":"Кинуть","en":"Drop","fr":"Tomber","fa":"سقوط"}}}
+	module.exports = {"lan":["ru","en","fr","fa","ch"],"default":"ru","data":{"title":{"ru":"Т Е Т Р И С","en":"T E T R I S","cn":"俄罗斯方块","fr":"T E T R I S","fa":"خانه سازی"},"github":{"ru":"ГитХаб","en":"GitHub","cn":"GitHub","fr":"GitHub","fa":"گیت‌هاب"},"linkTitle":{"ru":"Просмотр источника данных","en":"View data source","cn":"查看源代码","fr":"Afficher la source des données","fa":"مشاهده سورس پروژه"},"QRCode":{"ru":"QR code","en":"QR code","cn":"二维码","fr":"QR code","fa":"کیوآر کد"},"titleCenter":{"ru":"ТЕТРИС","en":"TETRIS","cn":"俄罗斯方块<br />TETRIS","fr":"TETRIS","fa":"خانه سازی"},"point":{"ru":"Точка","en":"Point","cn":"得分","fr":"Score","fa":"امتیاز"},"highestScore":{"ru":"Рекорд","cn":"最高分","en":"Max","fr":"Max","fa":"حداکثر"},"lastRound":{"ru":"Того раунда","cn":"上轮得分","en":"Last Round","fr":"Dernier Tour","fa":"آخرین دور"},"cleans":{"ru":"Очистить","cn":"消除行","en":"Cleans","fr":"Lignes","fa":"پاک کرد"},"level":{"ru":"Уровень","cn":"级别","en":"Level","fr":"Difficulté","fa":"سطح"},"startLine":{"ru":"Высота","cn":"起始行","en":"Start Line","fr":"Ligne Départ","fa":"خط شروع"},"next":{"cn":"下一个","ru":"Следующий","fr":"Prochain","fa":"بعدی"},"pause":{"cn":"暂停","ru":"Пауза","en":"Pause","fr":"Pause","fa":"مکث"},"sound":{"cn":"音效","ru":"Звук","en":"Sound","fr":"Sonore","fa":"صدا"},"reset":{"cn":"重玩","ru":"Сброс","en":"Reset","fr":"Réinitialiser","fa":"ریست"},"rotation":{"cn":"旋转","ru":"Вращение","en":"Rotation","fr":"Rotation","fa":"چرخش"},"left":{"cn":"左移","ru":"Налево","en":"Left","fr":"Gauche","fa":"چپ"},"right":{"cn":"右移","ru":"Направо","en":"Right","fr":"Droite","fa":"راست"},"down":{"cn":"下移","ru":"Вниз","en":"Down","fr":"Bas","fa":"پایین"},"drop":{"cn":"掉落","ru":"Кинуть","en":"Drop","fr":"Tomber","fa":"سقوط"}}}
 
 /***/ }),
 /* 232 */
@@ -33481,7 +33481,7 @@
 	  }, {
 	    key: 'componentWillReceiveProps',
 	    value: function componentWillReceiveProps(nextProps) {
-	      if ( // 只有在游戏进入开始, 或结束时 触发改变
+	      if ( // Изменения инициируются только тогда, когда игра входит в начало или заканчивается
 	      [this.props.cur, nextProps.cur].indexOf(false) !== -1 && this.props.cur !== nextProps.cur || this.props.reset !== nextProps.reset) {
 	        this.animate(nextProps);
 	      }
@@ -33512,7 +33512,7 @@
 	        return;
 	      }
 	
-	      var m = 'r'; // 方向
+	      var m = 'r'; // направление
 	      var count = 0;
 	
 	      var set = function set(func, delay) {
@@ -33523,7 +33523,7 @@
 	      };
 	
 	      var show = function show(func) {
-	        // 显示
+	        // показать
 	        set(function () {
 	          _this2.setState({
 	            display: 'block'
@@ -33535,7 +33535,7 @@
 	      };
 	
 	      var hide = function hide(func) {
-	        // 隐藏
+	        // скрыть
 	        set(function () {
 	          _this2.setState({
 	            display: 'none'
@@ -33547,7 +33547,7 @@
 	      };
 	
 	      var eyes = function eyes(func, delay1, delay2) {
-	        // 龙在眨眼睛
+	        // Маргание дракона
 	        set(function () {
 	          _this2.setState({ style: _index2.default[m + 2] });
 	          set(function () {
@@ -33560,7 +33560,7 @@
 	      };
 	
 	      var run = function run(func) {
-	        // 开始跑步啦！
+	        // Давайте начнем бегать！
 	        set(function () {
 	          _this2.setState({ style: _index2.default[m + 4] });
 	          set(function () {
@@ -33594,12 +33594,12 @@
 	      };
 	
 	      show(function () {
-	        // 忽隐忽现
+	        // Мерцание
 	        hide(function () {
 	          show(function () {
 	            hide(function () {
 	              show(function () {
-	                dra(); // 开始运动
+	                dra(); // Начните тренироваться
 	              });
 	            });
 	          });
@@ -33708,9 +33708,22 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      var touchEventCatch = {}; // 对于手机操作, 触发了touchstart, 将作出记录, 不再触发后面的mouse事件
+	      /*
+	      * Для работы с телефоном -
+	      * срабатывает touchstart,
+	      * об этом делается запись,
+	      * на основании которой,
+	      * перестают запускаться события мыши
+	      * */
+	      var touchEventCatch = {};
 	
-	      // 在鼠标触发mousedown时, 移除元素时可以不触发mouseup, 这里做一个兼容, 以mouseout模拟mouseup
+	      /*
+	      * Срабатывает для мыши во время mousedown.
+	      * Может быть вызванно без mouseup.
+	      * Совместимость достигается программынм,
+	      * вызовом предварительно подготовленного
+	      * объекта fake mouseup перед mousedown
+	      **/
 	      var mouseDownEventCatch = {};
 	      document.addEventListener('touchstart', function (e) {
 	        if (e.preventDefault) {
@@ -33718,14 +33731,14 @@
 	        }
 	      }, true);
 	
-	      // 解决issue: https://github.com/chvin/react-tetris/issues/24
+	      // улаживать issue: https://github.com/chvin/react-tetris/issues/24
 	      document.addEventListener('touchend', function (e) {
 	        if (e.preventDefault) {
 	          e.preventDefault();
 	        }
 	      }, true);
 	
-	      // 阻止双指放大
+	      // Предотвращает масштабирование двумя пальцами
 	      document.addEventListener('gesturestart', function (e) {
 	        if (e.preventDefault) {
 	          event.preventDefault();
