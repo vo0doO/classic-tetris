@@ -1,0 +1,20 @@
+{
+    "git.autoStash": true,
+    "git.alwaysSignOff": true,
+    "git.alwaysShowStagedChangesResourceGroup": true,
+    "git.allowNoVerifyCommit": true,
+    "git.autofetchPeriod": 10,
+    "git.decorations.enabled": false,
+    "git.detectSubmodules": false,
+    "git.enableStatusBarSync": false,
+    "git.ignoreLegacyWarning": true,
+    "git.ignoreMissingGitWarning": true,
+    "git.ignoreLimitWarning": true,
+    "git.openAfterClone": "whenNoFolderOpen",
+    "git.pullTags": false,
+    "git.scanRepositories": [
+        "./"
+    ],
+    "git.showCommitInput": false,
+    "git.showPushSuccessNotification": true
+}

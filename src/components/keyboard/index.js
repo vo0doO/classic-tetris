@@ -10,9 +10,22 @@ import { i18n, lan } from '../../unit/const';
 
 export default class Keyboard extends React.Component {
   componentDidMount() {
-    const touchEventCatch = {}; // 对于手机操作, 触发了touchstart, 将作出记录, 不再触发后面的mouse事件
+    /*
+    * Для работы с телефоном -
+    * срабатывает touchstart,
+    * об этом делается запись,
+    * на основании которой,
+    * перестают запускаться события мыши
+    * */
+    const touchEventCatch = {};
 
-    // 在鼠标触发mousedown时, 移除元素时可以不触发mouseup, 这里做一个兼容, 以mouseout模拟mouseup
+    /*
+    * Срабатывает для мыши во время mousedown.
+    * Может быть вызванно без mouseup.
+    * Совместимость достигается программынм,
+    * вызовом предварительно подготовленного
+    * объекта fake mouseup перед mousedown
+    **/
     const mouseDownEventCatch = {};
     document.addEventListener('touchstart', (e) => {
       if (e.preventDefault) {
@@ -20,14 +33,14 @@ export default class Keyboard extends React.Component {
       }
     }, true);
 
-    // 解决issue: https://github.com/chvin/react-tetris/issues/24
+    // улаживать issue: https://github.com/chvin/react-tetris/issues/24
     document.addEventListener('touchend', (e) => {
       if (e.preventDefault) {
         e.preventDefault();
       }
     }, true);
 
-    // 阻止双指放大
+    // Предотвращает масштабирование двумя пальцами
     document.addEventListener('gesturestart', (e) => {
       if (e.preventDefault) {
         event.preventDefault();

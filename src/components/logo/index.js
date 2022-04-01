@@ -17,7 +17,7 @@ export default class Logo extends React.Component {
     this.animate(this.props);
   }
   componentWillReceiveProps(nextProps) {
-    if ( // 只有在游戏进入开始, 或结束时 触发改变
+    if ( // Изменения инициируются только тогда, когда игра входит в начало или заканчивается
       (
         [this.props.cur, nextProps.cur].indexOf(false) !== -1 &&
         (this.props.cur !== nextProps.cur)
@@ -41,7 +41,7 @@ export default class Logo extends React.Component {
       return;
     }
 
-    let m = 'r'; // 方向
+    let m = 'r'; // направление
     let count = 0;
 
     const set = (func, delay) => {
@@ -51,7 +51,7 @@ export default class Logo extends React.Component {
       Logo.timeout = setTimeout(func, delay);
     };
 
-    const show = (func) => { // 显示
+    const show = (func) => { // показать
       set(() => {
         this.setState({
           display: 'block',
@@ -62,7 +62,7 @@ export default class Logo extends React.Component {
       }, 150);
     };
 
-    const hide = (func) => { // 隐藏
+    const hide = (func) => { // скрыть
       set(() => {
         this.setState({
           display: 'none',
@@ -73,7 +73,7 @@ export default class Logo extends React.Component {
       }, 150);
     };
 
-    const eyes = (func, delay1, delay2) => { // 龙在眨眼睛
+    const eyes = (func, delay1, delay2) => { // Маргание дракона
       set(() => {
         this.setState({ style: style[m + 2] });
         set(() => {
@@ -85,7 +85,7 @@ export default class Logo extends React.Component {
       }, delay1);
     };
 
-    const run = (func) => { // 开始跑步啦！
+    const run = (func) => { // Давайте начнем бегать！
       set(() => {
         this.setState({ style: style[m + 4] });
         set(() => {
@@ -118,12 +118,12 @@ export default class Logo extends React.Component {
       }, 1000, 1500);
     };
 
-    show(() => { // 忽隐忽现
+    show(() => { // Мерцание
       hide(() => {
         show(() => {
           hide(() => {
             show(() => {
-              dra(); // 开始运动
+              dra(); // Начните тренироваться
             });
           });
         });
