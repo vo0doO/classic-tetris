@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chvin/react-tetris.git"
+    "url": "git+https://github.com/vo0doo/classic-tetris.git"
   },
   "keywords": [
     "Tetris",
@@ -20,9 +20,9 @@
   "author": "Chvin",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/chvin/react-tetris/issues"
+    "url": "https://github.com/vo0doo/classic-tetris/issues"
   },
-  "homepage": "https://github.com/chvin/react-tetris#readme",
+  "homepage": "https://github.com/vo0doo/classic-tetris#readme",
   "devDependencies": {
     "autoprefixer": "^6.7.2",
     "babel-core": "^6.13.2",

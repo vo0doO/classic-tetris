@@ -33,7 +33,7 @@ export default class Keyboard extends React.Component {
       }
     }, true);
 
-    // улаживать issue: https://github.com/chvin/react-tetris/issues/24
+    // улаживать issue: https://github.com/vo0doo/classic-tetris/issues/24
     document.addEventListener('touchend', (e) => {
       if (e.preventDefault) {
         e.preventDefault();

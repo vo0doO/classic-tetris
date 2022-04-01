@@ -33731,7 +33731,7 @@
 	        }
 	      }, true);
 	
-	      // улаживать issue: https://github.com/chvin/react-tetris/issues/24
+	      // улаживать issue: https://github.com/vo0doo/classic-tetris/issues/24
 	      document.addEventListener('touchend', function (e) {
 	        if (e.preventDefault) {
 	          e.preventDefault();
@@ -34907,7 +34907,7 @@
 	            null,
 	            _react2.default.createElement(
 	              'a',
-	              { href: 'https://github.com/chvin/react-tetris', rel: 'noopener noreferrer', target: '_blank', title: _const.i18n.linkTitle[_const.lan] },
+	              { href: 'https://github.com/vo0doo/classic-tetris', rel: 'noopener noreferrer', target: '_blank', title: _const.i18n.linkTitle[_const.lan] },
 	              _const.i18n.github[_const.lan] + ':'
 	            ),
 	            _react2.default.createElement('br', null),

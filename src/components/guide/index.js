@@ -49,7 +49,7 @@ export default class Guide extends React.Component {
         </div>
         <div className={`${style.guide} ${style.left}`}>
           <p>
-            <a href="https://github.com/chvin/react-tetris" rel="noopener noreferrer" target="_blank" title={i18n.linkTitle[lan]}>{`${i18n.github[lan]}:`}</a><br />
+            <a href="https://github.com/vo0doo/classic-tetris" rel="noopener noreferrer" target="_blank" title={i18n.linkTitle[lan]}>{`${i18n.github[lan]}:`}</a><br />
             <iframe
               src="https://ghbtns.com/github-btn.html?user=vo0doo&repo=classic-tetris&type=star&count=true"
               frameBorder="0"
